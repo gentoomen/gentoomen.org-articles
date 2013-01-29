@@ -1,10 +1,11 @@
-all: build/00000000.pdf
+all: 00000000
 
-build/%.pdf: articles/%/article.tex 
-	mkdir -p build
+00000000: articles/00000000/article.tex 
+	mkdir -p build/$@
 	pdflatex -output-directory=build ../$<
+	mv build/article.pdf build/$@/$@.pdf
 	rm build/*.log build/*.aux
-	mv build/article.pdf $@
+	latex2html -dir build/$@ -split 0 -info "" $<
 
 clean:
 	rm -rv build
