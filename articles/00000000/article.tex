@@ -1,0 +1,53 @@
+% An article regarding how to write articles for gentoomen.org/articles
+% It's getting pretty meta in here
+
+\documentclass{article}
+\usepackage{times}
+\usepackage{url}
+
+\begin{document}
+\title{The ``How To Make an Article'' Article}
+\author{John Anthony\\
+  \texttt{http://github.com/JohnAnthony}}
+  \date{Jan 29th, 2013}
+%  Use the AMS article class (amsart) and you have the following extra commands:
+%  \thanks{mother}           %% List any acknowledgements
+%  \email{me@myplace.com}    %% The author’s email address.
+%  \urladdr{www.myplace.com} %% Feel free to link your own website
+\maketitle
+
+\begin{abstract}
+  In this article I seek to describe the standard procedure for contributing articles to \textbf{gentoomen.org}, in what I consider to be a fairly unique and extremely practical way. The method for doing so involves two of a programmer/computer scientist's standard arsenal of tools; git and \LaTeX{}.
+\end{abstract}
+        
+\section{Why?}
+\subsection{Why git?}
+  Git provides us with a few amazing features that are extremely desirable in this kind of collaborative article writing. First and foremost, it provides us with a platform for easy submittal of new articles (vis github) and a second-to-none version control and distribution system. It provides us with the security of a distributed repository, so no catastrophic computer failures will result in lost articles. It even allows us, the site maintainers, a method of easily merging in your changes and receiving spelling, factual error or broken link corrections. \\
+  What is see to be the only downside to git, its complexity and learning curve, shouldn't apply here because all article writers are expected to be at least moderately technically proficient. If you don't already know git and are interested in writing an article, don't fret! In the next section I will explain to you the basics and provide links to the really super simple stuff to get you started with this amazing tool. I also highly recommend the book ``Version Control With Git'' from O'Reilly Media.
+\subsection{Why \LaTeX{}?}
+ \LaTeX{} is just about the most flexible tool we have for the task of publishing articles and a single document can be used to cover \emph{all} of our technical requirements. \LaTeX{} outputs to many formats, and providing several formats (and a method for others to build their own versions for the articles for other uses) is a great advantage to us. Your submitted \textbf{.tex} file can be automatically built for the site (using a simple script or makefile) and outputted to HTML (which we can apply a uniform CSS to) for online viewing, \textbf{.ps} for printing, \textbf{.pdf} for on-screen viewing, \textbf{.epub} for ereader viewing and potentially many others. Anything people could possibly want. \\
+ So, in short, \LaTeX{} provides us with a unified and professional method of distributing your article in many different formats and does a bang-up job of making your article look (automatically) beautiful to boot.
+
+\section{A Brief Introduction to the Tools}
+\subsection{Git \& Github}
+  There are many great tutorials on using git with github so I'll avoid duplication of effort and not write up my own complete guide here. If you are using GNU+Linux then git will certainly be available in your repository. OSX and Windows users have slightly more work to do, but the task is hardly a staggering one. Here's a link to github's own introduction to the installation and use of git \& github: \url{https://help.github.com/articles/set-up-git} \\
+  After setting up an account with github, simply use their interface to make a fork of out repository (at \url{https://github.com/Gentoomen/articles}) and clone the repository locally with \texttt{git clone}. You are now ready to begin writing your article.
+\subsection{LaTeX{}}
+  The distribution of \LaTeX{} I use is \emph{Tex Live}, available for most every GNU+Linux distribution package repository as \textbf{texlive}. OSX users will find that XeTeX is already installed on their systems. Windows users can obtain Tex Live from the project's site (\url{http://tug.org/texlive}). I won't get into discussing the different \TeX packages here, because in honesty I don't know much about the different bundles and don't find the subject to be very interesting beyond getting set up and working. I suspect you may feel the same way. \\
+  Much like with git \& github, \LaTeX{} has many great tutorials for the uninitiated. If you're new to \LaTeX{} then don't panic, because it's extremely simple to learn - I recommend you start by reading the excellent tutorial here; \url{http://www.andy-roberts.net/writing/latex}, and by browsing the source of this article and others available in our repository.
+
+\section{Writing Your Article}
+\subsection{File Structure}
+  OK, so, you have your own fork of our article repository and you've cloned a local copy to wherever you intend to write from (if you haven't done this, back up to the previous section). The first thing you want to do is create a subdirectory for your article within the ``articles'' directory with a name like ``00000001-JohnAnthony''. Our repository uses an 8-digit number to identify articles in the order in which they are submitted, so that explains the first part. You are naming your directory for the slot you are intending for it to take up. \\
+  The tag (\#\#\#\#\#\#\#\#-tag) is any arbitrary tag you want to use to identify yourself. This eliminates \emph{clashes} when multiple people submit articles for the same slot. When a maintainer of the repo gets two merge requests at the same time, for example containing ``00000028-redlizard'' and ``00000028-naosia'', he can simply merge both requests and then use git to rename the directory of the article submitted first to 00000028 and the article submitted second to 00000029. If both merge requests had been submitted using the directory name 00000028, then a conflict would have occurred and the clash would have had to be dealt with manually. \\
+\subsection{Submitting Your Article}
+  Articles are submitted by simply sending a merge request to the Gentoomen github group of your \textbf{gentoomen.org-articles} fork. Save all of your changes, add your changes to stage using \texttt{git add} and commit them with \texttt{git commit}, then push them to your repository using \texttt{git push}. Now navigate your browser to your github repo page and submit us your merge request and we'll get your article included into our main repo and built for the site ASAP. We'll get back to you if there are any problems with your submission.
+\subsection{What To Include / What Not To Include}
+  A couple of ground rules about what you should and shouldn't include in your submission; don't include any of your built files. This is roughly equivalent to including .o or binary executable files in a C/C++ project. It's also bad form to include files for download with your submission - such files should correctly be hosted on an external site. If your files are only a few KB in size, however (such as small text or source files) then including them shouldn't be a problem. This is a design decision that has to be made, however, because your article will be being built to be viewed offline as well. If you want to include code snippets, perhaps even reasonably large ones, you may want to include them in the body of the document. \\
+  Include images in your submission's folder. They are needed to build your article correctly and expecting an article builder to have an internet connection is bad form.
+\subsection{Regarding References}
+  Although I haven't used any here, references are wonderful thinsg and should be used as much as possible within articles. Please see this page for excellent guidelines on including references in your articles; \url{http://www.andy-roberts.net/writing/latex/bibliographies}
+\subsection{Need Help?}
+  Oh, hey, you got all the way to the end! If you get to this point and you are in need of help, feel free to come and find us at \texttt{\#/g/sicp} in \texttt{irc.rizon.net} or ask for help through the github interface. \\
+  Thankyou in advance for your interest and we look forwards to hearing from you!
+\end{document}
