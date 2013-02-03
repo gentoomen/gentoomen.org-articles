@@ -1,25 +1,21 @@
 % An article regarding how to write articles for gentoomen.org/articles
 % It's getting pretty meta in here
 
-\documentclass{article}
+\documentclass{amsart}
 \usepackage{times}
 \usepackage{url}
 
 \begin{document}
-\title{The ``How To Make an Article'' Article}
-\author{John Anthony\\
-  \texttt{http://github.com/JohnAnthony}}
-  \date{Jan 29th, 2013}
-%  Use the AMS article class (amsart) and you have the following extra commands:
-%  \thanks{mother}           %% List any acknowledgements
-%  \email{me@myplace.com}    %% The author’s email address.
-%  \urladdr{www.myplace.com} %% Feel free to link your own website
-\maketitle
 
 \begin{abstract}
   In this article I seek to describe the standard procedure for contributing articles to \textbf{gentoomen.org}, in what I consider to be a fairly unique and extremely practical way. The method for doing so involves two of a programmer/computer scientist's standard arsenal of tools; git and \LaTeX{}.
 \end{abstract}
         
+\title{The ``How To Make an Article'' Article}
+\author{John Anthony}
+\date{Jan 29th, 2013}
+\maketitle
+
 \section{Why?}
 \subsection{Why git?}
   Git provides us with a few amazing features that are extremely desirable in this kind of collaborative article writing. First and foremost, it provides us with a platform for easy submittal of new articles (via github) and a second-to-none version control and distribution system. It provides us with the security of a distributed repository, so no catastrophic computer failures will result in lost articles. It even allows us, the site maintainers, a method of easily merging in your changes and receiving spelling, factual error or broken link corrections. \\
